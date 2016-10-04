@@ -114,7 +114,7 @@ public class MainController {
     @RequestMapping(value = "/vigenereDecode", method = RequestMethod.GET)
     public ModelAndView vigenereDecode(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("decodeFoem", new VigenereMethod());
+        modelAndView.addObject("decodeForm", new VigenereMethod());
         modelAndView.setViewName("methods/vigenereDecode");
 
         return modelAndView;
@@ -132,8 +132,8 @@ public class MainController {
     @RequestMapping(value = "/vigenereDecode", method = RequestMethod.POST)
     public ModelAndView vigenereDecodePost(@ModelAttribute("decodeForm") VigenereMethod vigenereMethod,
                                            ModelAndView modelAndView){
-        modelAndView.addObject("decodeResult", vigenereMethod.getDecodedMessage());
         modelAndView.setViewName("methods/vigenereDecode");
+        modelAndView.addObject("decodeResult", vigenereMethod.getDecodedMessage());
 
         return modelAndView;
     }
